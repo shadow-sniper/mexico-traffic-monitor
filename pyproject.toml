@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mexico-traffic-monitor"
+version = "0.1.0"
+description = "Windows desktop app starter for real-time traffic monitoring in Mexico."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "shadow-sniper" }]
+dependencies = [
+  "PySide6>=6.7",
+  "requests>=2.32",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2",
+  "pyinstaller>=6.8",
+]
+
+[project.scripts]
+mexico-traffic-monitor = "mexico_traffic_monitor.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
